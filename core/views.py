@@ -5,5 +5,5 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'index.html')
 
-def singup(request):
-    return render(request, 'singup.html')
+def signup(request):
+    return render(request, 'signup.html')

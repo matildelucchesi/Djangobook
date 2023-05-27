@@ -8,15 +8,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Djangobook-signup</title>
-    <link href="{%static css/signup.css %}" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="{%static js/main.js}"></script>
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
 </head>
 <body>
     <header class="header">
         <div class="wrapper">
             <div class="hi-wrapper">
                 <h1 class="text">Welcome to</h1>
-                <img src="{%static img/logo.png"} class="logo" alt="logo">
+                <img src="{%static 'img/logo.png' %}" class="logo" alt="logo">
             </div>
             <button class="login-button">
                 <span class="button-text">Login</span>
