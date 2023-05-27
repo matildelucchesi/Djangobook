@@ -1,0 +1,98 @@
+body{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    height: 5vw;
+    background-color: #091c22;
+    align-content: center;
+    justify-content: center;
+}
+
+.header-wrapper{
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    left: 15px;
+}
+
+.logo{
+    display: flex;
+    width: 8em;
+    height: 3em;
+    justify-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.logo-img{
+    width: 100%;
+    height: 100%;
+}
+
+.search-bar{
+    display: flex;
+    width: 60%;
+    height: 80%;
+}
+
+.input-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.input-text {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    padding-right: 0px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    align-self: center;
+    margin-left: 5px;
+}
+
+.input{
+    width: 100%;
+    font-size: medium;
+    font-family: Bahnschrift, serif;
+    font-weight: bold;
+    border: none;
+}
+
+.shortcuts{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    left: -15px;
+    width: 50%;
+    height: 2.5em;
+}
+
+.shortcuts-icon{
+    margin: 4px;
+    margin-right: 10px;
+    margin-left: 2px;
+}
+
+.icon{
+    width: 100%;
+    height: 100%;
+}
+
+.search-icon{
+    display: flex;
+    position: relative;
+    background-color: white;
+    height: 1.9em;
+    padding: 2px;
+    border-radius: 0 5px 5px 0px;
+}
