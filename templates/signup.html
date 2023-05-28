@@ -26,28 +26,40 @@
     <div class="content">
         <div class="signup-wrapper">
             <h1 class="text" id="signup-text">Sign Up</h1>
-            <form class="signup-wrapper">
-                <label class="signup-label">
-                    <input type="text" placeholder="First Name" class="input-text">
-                </label>
-                <label class="signup-label">
-                    <input type="text" placeholder="Second Name" class="input-text">
-                </label>
-                <label class="signup-label">
-                    <input type="text" placeholder="Email" class="input-text">
-                </label>
-                <label class="signup-label">
-                    <input type="text" placeholder="Password" class="input-text">
-                </label>
-                <label class="signup-label">
-                    <input type="text" placeholder="Confirm Password" class="input-text">
-                </label>
-            </form>
-            <div class="button">
-                <button class="login-button" id="login-button">
-                    <span class="button-text">Sign Up</span>
-                </button>
+
+            <div>
+                <style>
+                    h5{
+                        color: black;
+                    }
+                </style>
+                {% for message in messages %}
+                <h5>{{message}}</h5>
+                {% endfor %}
             </div>
+
+            <form class="signup-wrapper" action="" method="POST">
+                {% csrf_token %}
+                <label class="signup-label">
+                    <input type="text" name="username" placeholder="Username" class="input-text">
+                </label>
+                <label class="signup-label">
+                    <input type="email" name="email" placeholder="Email" class="input-text">
+                </label>
+                <label class="signup-label">
+                    <input type="password" name="password" placeholder="Password" class="input-text">
+                </label>
+                <label class="signup-label">
+                    <input type="password" name="confirm-password" placeholder="Confirm Password" class="input-text">
+                </label>
+
+                <div class="button">
+                    <button class="login-button" id="login-button">
+                        <span class="button-text">Sign Up</span>
+                    </button>
+                </div>
+            </form>
+        
         </div>
     </div>
 </body>
