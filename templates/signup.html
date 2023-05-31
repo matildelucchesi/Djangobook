@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Djangobook-signup</title>
     <link href="{% static 'css/signup.css' %}" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
+    <script src="{%static 'js/main.js' %}" type="text/javascript"></script>
 </head>
 <body>
     <header class="header">
@@ -19,7 +19,7 @@
                 <img src="{%static 'img/logo.png' %}" class="logo" alt="logo">
             </div>
             <button class="login-button">
-                <span class="button-text">Login</span>
+                <a href="/login" class="button-text">Login</a>
             </button>
         </div>
     </header>
@@ -55,7 +55,7 @@
 
                 <div class="button">
                     <button class="login-button" id="login-button">
-                        <span class="button-text">Sign Up</span>
+                        <a class="button-text" href="/login">Sing Up</a>
                     </button>
                 </div>
             </form>
