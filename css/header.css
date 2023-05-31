@@ -17,9 +17,7 @@ body{
     display: flex;
     background-color: transparent;
     align-items: center;
-    position: relative;
     flex: 1;
-    left: 15px;
 }
 
 .logo{
@@ -29,6 +27,8 @@ body{
     justify-items: center;
     justify-content: center;
     align-self: center;
+    position: relative;
+    left: 15px;
 }
 
 .logo-img{
@@ -78,6 +78,7 @@ body{
 }
 
 .shortcuts-icon{
+    display: flex;
     margin: 4px;
     margin-right: 10px;
     margin-left: 2px;
@@ -94,5 +95,51 @@ body{
     background-color: white;
     height: 1.9em;
     padding: 2px;
-    border-radius: 0 5px 5px 0px;
+    border-radius: 0 5px 5px 0;
+}
+
+.settings-button{
+    background-color: transparent;
+    display: contents;
+    border: none;
+}
+
+.dropdown-menu{
+    height: 8vw;
+    width: 14vw;
+    position: absolute;
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    z-index: 5;
+    top: calc(100% + 5px);
+    left: calc(50% + 50px);
+}
+
+.dropdown-links{
+    font-family: "Arial", serif;
+    text-decoration-line: none;
+    color: black;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -.03em;
+    line-height: 1.13;
+}
+
+.header-nav{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    background: white;
+    color: black;
+    padding-left: 0;
+    text-align: left;
+    width: 90%;
+}
+
+ul {
+    list-style-type: none;
 }

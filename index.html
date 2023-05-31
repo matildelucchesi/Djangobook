@@ -42,10 +42,20 @@
                         <img src="img/notifications-icon.png" class="icon" alt="notifications-icon">
                     </a>
                 </div>
-                <div class="shortcuts-icon">
-                    <a href="index.html">
-                        <img src="img/settings-icon.png" class="icon" alt="settings-icon">
-                    </a>
+                <div class="shortcuts-icon" dropdown>
+                    <button class="settings-button" dropdown-button>
+                        <img src="img/settings-icon.png" class="icon" alt="settings-icon" dropdown-button>
+                    </button>
+                    <div class="dropdown-menu">
+                        <nav>
+                            <ul class="header-nav">
+                                <li><a class="dropdown-links" href="#">Account Settings</a></li>
+                                <li><a class="dropdown-links" href="#">Help</a></li>
+                                <li><a class="dropdown-links" href="#">Log out</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
                 </div>
             </div>
         </div>
