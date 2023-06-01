@@ -14,12 +14,15 @@
 <body>
   <header class="header">
     <div class="wrapper">
-      <div class="hi-wrapper">
-        <h1 class="text">Welcome to</h1>
-        <img src="{%static 'img/logo.png' %}" class="logo" alt="logo">
-      </div>
+        <div class="hi-wrapper">
+            <h1 class="text">Welcome to</h1>
+            <img src="{%static 'img/logo.png' %}" class="logo" alt="logo">
+        </div>
+        <button class="login-button">
+            <a href="/signup" class="button-text">Sign Up</a>
+        </button>
     </div>
-  </header>
+</header>
   <div class="content">
     <div class="signup-wrapper">
       <h1 class="text" id="signup-text">Log In</h1>
@@ -43,7 +46,7 @@
         <label class="signup-label">
           <input type="password" name="password" placeholder="Password" class="input-text">
         </label>
-        <div class="button">
+        <div class="buttonl">
           <button class="login-button" id="login-button">
             <span class="button-text">Login</span>
           </button>
