@@ -1,0 +1,73 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Settings</title>
+    <link href="{%static 'css/settings.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="back-arrow">
+                <a class="back" href="/">
+                    <img src="{%static 'img/back-arrow.png' %}" class="back-arrow-img" alt="back-arrow-img">
+                </a>
+            </div>
+            <h1>Your informations on Djangobook</h1>
+        </div>
+    </header>
+    <div class="content">
+        <div class="settings-container">
+            <div class="sub-settings-container">
+               <form class="sub-settings-container" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="settings-label">
+                        <label for="">
+                            <span class="settings-name">First Name</span>
+                            <input type="text" name="first_name" value="{{user_profile.first_name}}" placeholder="First Name" class="input-text">
+                        </label>
+                    </div>
+                    <div class="settings-label">
+                        <label for="">
+                        <span class="settings-name">Second Name</span>
+                        <input type="text" name="second_name" value="{{user_profile.second_name}}" placeholder="Second Name" class="input-text">
+                    </label>
+                    </div>
+                    <div class="settings-label">
+                        <label for="">
+                            <span class="settings-name">Profile Image</span>
+                            <img width="100" src="{{user_profile.profile_img.url}}" />
+                            <input type="file" name="image" value="" placeholder="" class="input-text">
+                        </label>
+                    </div>
+                    <div class="settings-label">
+                        <label for="">
+                        <span class="settings-name">Location</span>
+                        <input type="text" name="location" value="{{user_profile.location}}" placeholder="Location" class="input-text">
+                    </label>
+                    </div> 
+                    <div class="settings-label">
+                        <label for="">
+                            <span class="settings-name">Bio</span>
+                            <textarea name="bio" class="input-text" placeholder="About me...">{{user_profile.bio}}</textarea>
+                    </label>
+                    </div>
+            
+                   <button>
+                        <span class="button-text">Cancel</span>
+                   </button>
+                   <button type="submit">
+                        <span class="button-text">Save</span>
+                   </button>
+               </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

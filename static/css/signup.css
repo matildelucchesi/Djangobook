@@ -29,6 +29,15 @@ body{
     width: 90%;
 }
 
+.signup-wrapper{
+    display: grid;
+    align-content: center;
+}
+
+.signup-label{
+    display: flex;
+}
+
 .login-button{
     display: flex;
     background-color: #1253a2;
@@ -50,7 +59,7 @@ body{
     text-align: center;
     font-size: medium;
     padding: 9px;
-    text-decoration: none;
+    text-decoration-line: none;
 }
 
 .hi-wrapper{
@@ -95,7 +104,7 @@ body{
     height: 4vw;
 }
 
-.buttonl{
+.button{
     display: flex;
     align-items: center;
     width: 100%;
