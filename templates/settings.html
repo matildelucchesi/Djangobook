@@ -42,8 +42,10 @@
                     <div class="settings-label">
                         <label for="">
                             <span class="settings-name">Profile Image</span>
-                            <img width="100" src="{{user_profile.profile_img.url}}" />
-                            <input type="file" name="image" value="" placeholder="" class="input-text">
+                            <div class="propic">
+                                <img width="100" src="{{user_profile.profile_img.url}}" />
+                                <input type="file" name="image" value="" placeholder="" class="name-text">
+                            </div>
                         </label>
                     </div>
                     <div class="settings-label">
@@ -58,13 +60,14 @@
                             <textarea name="bio" class="input-text" placeholder="About me...">{{user_profile.bio}}</textarea>
                     </label>
                     </div>
-            
-                   <button>
-                        <span class="button-text">Cancel</span>
-                   </button>
+                    <div class="button-container">
+                        <button>
+                            <a class="button-text" href="/">Cancel</a>
+                        </button>
                    <button type="submit">
                         <span class="button-text">Save</span>
                    </button>
+                    </div>
                </form>
             </div>
         </div>

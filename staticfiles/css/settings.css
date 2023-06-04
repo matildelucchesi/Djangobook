@@ -99,7 +99,7 @@ button:hover{
 .input-text{
     background-color: white;
     width: 22em;
-    margin: 2px;
+    margin: 10px;
     border-color: #1dacd0;
     height: 2.5em;
 }
@@ -109,4 +109,24 @@ label{
     align-items: center;
     display: flex;
     justify-content: space-between;
+}
+
+.button-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.propic{
+    display: grid;
+}
+
+.name-text{
+    background-color: white;
+    width: 15em;
+    margin: 2px;
+    border-color: #1dacd0;
+    height: 2.5em;
+    text-wrap: wrap;
 }
