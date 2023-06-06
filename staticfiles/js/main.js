@@ -30,12 +30,7 @@ document.addEventListener('click', e => {
             d.style.opacity = '0';
         }
     }
-
-    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
-        if (dropdown === currentDropdown) return;
-        dropdown.classList.remove('active');
-        console.log('Dropdown:', dropdown, 'active:', dropdown.classList.contains('active'));
-        d.style.overflowY = 'hidden';
-        d.style.opacity = '0';
-    });
+    
 });
+
+  
