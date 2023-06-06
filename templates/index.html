@@ -65,11 +65,13 @@
     <div class="content">
         <div class="post">
             <div class="add-post">
-                <div class="new-post-block" dd>
-                    <textarea class="post-text" placeholder="What's new"></textarea>
+                <form action="upload" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="new-post-block" dd>
+                    <textarea class="post-text" placeholder="What's new" name="caption"></textarea>
                     <div class="dd-image">
                         <div class="custom-file-input">
-                            <input type="file" id="file-input" />
+                            <input type="file" id="file-input" name="image_upload"/>
                             <label for="file-input" class="custom-button">
                                 <span class="text">Add photo</span>
                             </label>
@@ -79,6 +81,8 @@
                         </button>
                     </div>
                 </div>
+                </form>
+                
             </div>
             <div class="feed">
 
