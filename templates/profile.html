@@ -1,0 +1,71 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link href="{%static 'css/profile.css' %}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css/header.css' %}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css/post.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="back-arrow">
+                <a class="back" href="/">
+                    <img src="{%static 'img/back-arrow.png' %}" class="back-arrow-img" alt="back-arrow-img">
+                </a>
+            </div>
+            <h1>Welcome to your Profile</h1>
+            <div class="settings-container">
+                <div class="shortcuts-icon" dropdown>
+                    <button class="settings-button" dropdown-button>
+                        <img src="{%static 'img/settings-icon.png' %}" class="icon" alt="settings-icon" dropdown-button>
+                    </button>
+                    <div class="dropdown-menu">
+                        <nav>
+                            <ul class="header-nav">
+                                <li><a class="dropdown-links" href="settings">Account Settings</a></li>
+                                <li><a class="dropdown-links" href="{%static 'index.html' %}">Help</a></li>
+                                <li><a class="dropdown-links" href="logout">Log out</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="left">
+        </div>
+        <div class="posts">
+            {% for post in posts reversed %}
+                <div class="post">
+                    <div class="post-header">
+                        <img src="{{post.user.profile_img}}" alt="Immagine del profilo">
+                        <div class="post-info">
+                            <h3 class="username">{{post.user}}</h3>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>{{post.caption}}</p>
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="post-img">
+                        {% endif %}
+                    </div>
+                    <div class="post-footer">
+                        <button class="like-button">Like</button>
+                        <button class="comment-button">Comment</button>
+                        <button class="share-button">Share</button>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

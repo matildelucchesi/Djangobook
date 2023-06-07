@@ -11,7 +11,12 @@ from core.models import Post
 
 @login_required(login_url='login')
 def index(request):
-    return render(request, 'index.html')
+    user_object = User.objects.get(username = request.user.username)
+    user_profile = User.objects.get(username = user_object)
+    
+    posts = Post.objects.all()
+
+    return render(request, 'index.html', {'user_profile': user_profile, 'posts': posts})
 
 def signup(request):
     
@@ -112,12 +117,17 @@ def upload(request):
         user = request.user.username
         image = request.FILES.get('image_upload')
         caption = request.POST['caption']
-        
         new_post = Post.objects.create(user=user, image=image, caption=caption)
         new_post.save()
         
         return redirect('/')
     else:
         return redirect('/')
+
+@login_required
+def profile(request):
+    user_object = User.objects.get(username = request.user.username)
+    user_profile = User.objects.get(username = user_object)
+    posts = Post.objects.filter(user=request.user.username)
     
-    return HttpResponse('<h1>Upload View</h1>')
+    return render(request, 'profile.html', {'user_profile': user_profile, 'posts': posts})

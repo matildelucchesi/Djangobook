@@ -55,12 +55,10 @@
 .custom-button{
     display: flex;
     background-color: #1c0779;
-    border-radius: 15px;
-    height: 2.5em;
-    width: 7em;
     border-color: #1dacd0;
     align-self: center;
     align-content: center;
+    border-radius: 0 0px 10px 10px;
 }
 
 
@@ -76,6 +74,7 @@
     flex-wrap: wrap;
     background-color: #1dacd0;
     align-content: center;
+    justify-content: space-between;
 }
 
 .add-image-icon{
@@ -95,7 +94,12 @@
   
 .custom-file-input .custom-button {
    display: flex;
-   color: #1c0779;
    width: 100%;
-   border-radius: 0 0px 10px 10px;
+}
+
+.upload-button{
+    display: flex;
+    background-color: #1253a2;
+    border-radius: 50px;
+    border-color: white;
 }

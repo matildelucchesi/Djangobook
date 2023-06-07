@@ -10,6 +10,7 @@
     <title>Djangobook</title>
     <link href="{%static 'css\header.css' %}" rel="stylesheet" type="text/css">
     <link href="{%static 'css\index-content.css' %}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css\post.css' %}" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
 </head>
 
@@ -31,7 +32,7 @@
             </div>
             <div class="shortcuts">
                 <div class="shortcuts-icon">
-                    <a href="{%static 'index.html' %}">
+                    <a href="profile">
                         <img src="{%static 'img/profile-icon.png' %}" class="icon" alt="profile-icon">
                     </a>
                 </div>
@@ -82,10 +83,29 @@
                     </div>
                 </div>
                 </form>
-                
             </div>
             <div class="feed">
-
+                {% for post in posts reversed %}
+                <div class="post">
+                    <div class="post-header">
+                        <img src="{{post.user.profile_img}}" alt="Immagine del profilo">
+                        <div class="post-info">
+                            <h3 class="username">{{post.user}}</h3>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>{{post.caption}}</p>
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="post-img">
+                        {% endif %}
+                    </div>
+                    <div class="post-footer">
+                        <button class="like-button">Like</button>
+                        <button class="comment-button">Comment</button>
+                        <button class="share-button">Share</button>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="friends">

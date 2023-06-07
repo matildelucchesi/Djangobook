@@ -20,17 +20,17 @@ document.addEventListener('click', e => {
         console.log('Dropdown:', currentDropdown, 'active:', currentDropdown.classList.contains('active'));
 
         if (currentDropdown.classList.contains('active')) {
-            d.style.overflowY = 'auto';
             d.style.opacity = '1';
-            document.body.style.overflowY = 'hidden';
 
         } else {
-            d.style.overflowY = 'hidden';
-            document.body.style.overflowY = 'visible';
             d.style.opacity = '0';
         }
     }
-    
-});
 
-  
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove('active');
+        console.log('Dropdown:', dropdown, 'active:', dropdown.classList.contains('active'));
+        d.style.opacity = '0';
+    });
+});

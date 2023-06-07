@@ -16,7 +16,7 @@ body{
 .back-arrow{
     display: flex;
     width: 1.5em;
-    position: relative;
+    position: absolute;
     left: 20px;
 }
 
@@ -30,13 +30,13 @@ h1{
     text-align: center;
     align-self: center;
     position: relative;
-    left: 30px;
 }
 
 .wrapper{
     display: flex;
-    width: fit-content;
+    width: 100%;
     align-items: center;
+    justify-content: center;
 }
 
 .content{
