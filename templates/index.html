@@ -100,9 +100,17 @@
                         {% endif %}
                     </div>
                     <div class="post-footer">
-                        <button class="like-button">Like</button>
+                        <a href="/like?post_id={{post.id}}">
+                            <button class="like-button">Like</button>
+                        </a>
+                        {% if post.likes == 0 %}
+                            <p>No likes</p>
+                        {% elif post.likes == 1 %}
+                            <p>Liked by 1 person</p>
+                        {% else %}
+                            <p>Liked by {{ post.likes }} people</p>
+                        {% endif %}
                         <button class="comment-button">Comment</button>
-                        <button class="share-button">Share</button>
                     </div>
                 </div>
                 {% endfor %}

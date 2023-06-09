@@ -2,7 +2,9 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
+    width: 70%;
     margin-bottom: 10px;
+    justify-self: center;
 }
               
 .post-header {
@@ -52,14 +54,14 @@
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    background-color: #ccc;
+    background-color: #1253a2;
     color: #fff;
     font-size: 14px;
     cursor: pointer;
 }
               
 .post-footer button:hover {
-    background-color: #999;
+    background-color: #1dacd0;
 }
          
               

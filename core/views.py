@@ -6,13 +6,14 @@ from django.contrib.auth.decorators import login_required
 
 from core.models import Profile
 from core.models import Post
+from core.models import LikePost
 
 # Create your views here.
 
 @login_required(login_url='login')
 def index(request):
     user_object = User.objects.get(username = request.user.username)
-    user_profile = User.objects.get(username = user_object)
+    user_profile = Profile.objects.get(user = user_object)
     
     posts = Post.objects.all()
 
@@ -127,7 +128,29 @@ def upload(request):
 @login_required
 def profile(request):
     user_object = User.objects.get(username = request.user.username)
-    user_profile = User.objects.get(username = user_object)
+    user_profile = Profile.objects.get(username = user_object)
     posts = Post.objects.filter(user=request.user.username)
     
     return render(request, 'profile.html', {'user_profile': user_profile, 'posts': posts})
+
+
+def like(request):
+    username = request.user.username
+    post_id = request.GET.get('post_id')
+    
+    post = Post.objects.get(id=post_id)
+    
+    filter = LikePost.objects.filter(post_id=post_id, username=username).first
+    
+    if filter is None:
+        new_like = LikePost.objects.create(post_id=post_id, username=username)
+        new_like.save()
+        post.likes = post.likes + 1
+        post.save()
+        return redirect('/')
+    else:
+        filter.delete()
+        post.likes = post.likes - 1
+        post.save()
+        return redirect('/')
+    

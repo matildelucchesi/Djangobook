@@ -9,7 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile</title>
     <link href="{%static 'css/profile.css' %}" rel="stylesheet" type="text/css">
-    <link href="{%static 'css/header.css' %}" rel="stylesheet" type="text/css">
     <link href="{%static 'css/post.css' %}" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
 </head>
@@ -23,33 +22,36 @@
             </div>
             <h1>Welcome to your Profile</h1>
             <div class="settings-container">
-                <div class="shortcuts-icon" dropdown>
-                    <button class="settings-button" dropdown-button>
-                        <img src="{%static 'img/settings-icon.png' %}" class="icon" alt="settings-icon" dropdown-button>
-                    </button>
-                    <div class="dropdown-menu">
-                        <nav>
-                            <ul class="header-nav">
-                                <li><a class="dropdown-links" href="settings">Account Settings</a></li>
-                                <li><a class="dropdown-links" href="{%static 'index.html' %}">Help</a></li>
-                                <li><a class="dropdown-links" href="logout">Log out</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+                <button class="settings-button">
+                    <a href="settings">
+                       <img src="{%static 'img/settings-icon.png' %}" class="icon" alt="settings-icon"> 
+                    </a>
+                </button>
             </div>
         </div>
     </header>
     <div class="content">
         <div class="left">
+            <div class="profile-img-container">
+                <div class="profile-img">
+                    <img src="{{ user_profile.profile_img.url }}" alt="Profile image">
+                </div>
+            </div>
+            <div class="left-settings">
+                <nav>
+                    <ul>
+                        <li><a>Settings</a></li>
+                        <li><a>Friends</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
         <div class="posts">
             {% for post in posts reversed %}
                 <div class="post">
                     <div class="post-header">
-                        <img src="{{post.user.profile_img}}" alt="Immagine del profilo">
                         <div class="post-info">
-                            <h3 class="username">{{post.user}}</h3>
+                            <h3 class="username">@{{post.user}}</h3>
                         </div>
                     </div>
                     <div class="post-content">
@@ -59,9 +61,17 @@
                         {% endif %}
                     </div>
                     <div class="post-footer">
-                        <button class="like-button">Like</button>
+                        <a href="/like?post_id={{post.id}}">
+                            <button class="like-button">Like</button>
+                        </a>
+                        {% if post.likes == 0 %}
+                            <p>No likes</p>
+                        {% elif post.likes == 1 %}
+                            <p>Liked by 1 person</p>
+                        {% else %}
+                            <p>Liked by {{ post.likes }} people</p>
+                        {% endif %}
                         <button class="comment-button">Comment</button>
-                        <button class="share-button">Share</button>
                     </div>
                 </div>
                 {% endfor %}

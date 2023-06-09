@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     border: none;
+    overflow-y: hidden;
 }
 
 .header{
@@ -56,8 +57,10 @@ h1{
 
 .settings-container{
     display: flex;
-    height: 80%;
+    height: 2em;
     align-self: center;
+    position: relative;
+    right: 15px;
 }
 
 .settings-button{
@@ -77,8 +80,6 @@ h1{
     opacity: 0;
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     z-index: 5;
-    top: 66px;
-    left: 900px;
 }
 
 .dropdown-links{
@@ -105,3 +106,46 @@ h1{
 ul {
     list-style-type: none;
 }
+
+.content{
+    display: flex;
+    overflow-y: hidden;
+}
+
+.left{
+    display: grid;
+    width: 25%;
+    background-color: #1dacd0;
+    overflow-y: hidden;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.posts{
+    width: 75%;
+    display: grid;
+    overflow-y: scroll;
+}
+
+.profile-img-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.profile-img {
+    width: 14em;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .profile-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  

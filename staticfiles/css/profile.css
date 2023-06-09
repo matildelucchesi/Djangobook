@@ -56,8 +56,10 @@ h1{
 
 .settings-container{
     display: flex;
-    height: 80%;
+    height: 2em;
     align-self: center;
+    position: relative;
+    right: 15px;
 }
 
 .settings-button{
@@ -77,8 +79,6 @@ h1{
     opacity: 0;
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     z-index: 5;
-    top: 66px;
-    left: 900px;
 }
 
 .dropdown-links{
@@ -105,3 +105,18 @@ h1{
 ul {
     list-style-type: none;
 }
+
+.content{
+    display: flex;
+}
+
+.left{
+    display: grid;
+    width: 25;
+}
+
+.posts{
+    width: 75%;
+    display: grid;
+}
+
