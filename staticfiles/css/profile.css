@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     border: none;
+    overflow-y: hidden;
 }
 
 .header{
@@ -108,15 +109,50 @@ ul {
 
 .content{
     display: flex;
+    overflow-y: hidden;
 }
 
 .left{
     display: grid;
-    width: 25;
+    width: 25%;
+    background-color: #1dacd0;
+    overflow-y: hidden;
+    justify-content: center;
+    align-items: baseline;
 }
 
 .posts{
     width: 75%;
     display: grid;
+    overflow-y: scroll;
 }
 
+.profile-img-container{
+    display: grid;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid #1253a2;
+}
+
+.profile-img {
+    width: 14em;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 13px;
+  }
+  
+  .profile-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .nickname{
+    justify-self: center;
+    margin: 0px;
+  }
+  

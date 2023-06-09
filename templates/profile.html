@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile</title>
+    <title>Profile - {{user_profile.user.username}}</title>
     <link href="{%static 'css/profile.css' %}" rel="stylesheet" type="text/css">
     <link href="{%static 'css/post.css' %}" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
@@ -20,10 +20,14 @@
                     <img src="{%static 'img/back-arrow.png' %}" class="back-arrow-img" alt="back-arrow-img">
                 </a>
             </div>
-            <h1>Welcome to your Profile</h1>
+            {% if user_profile == request_profile %}
+                <h1>Welcome to your Profile</h1>
+            {% else %}
+                <h1>This is the profile of {{user_profile.user.username}}</h1>
+            {% endif %}
             <div class="settings-container">
                 <button class="settings-button">
-                    <a href="settings">
+                    <a href="/settings">
                        <img src="{%static 'img/settings-icon.png' %}" class="icon" alt="settings-icon"> 
                     </a>
                 </button>
@@ -36,22 +40,18 @@
                 <div class="profile-img">
                     <img src="{{ user_profile.profile_img.url }}" alt="Profile image">
                 </div>
-            </div>
-            <div class="left-settings">
-                <nav>
-                    <ul>
-                        <li><a>Settings</a></li>
-                        <li><a>Friends</a></li>
-                    </ul>
-                </nav>
+                <h3 class="nickname">{{user_profile.user.username}}</h3>
+                <div class="bio">
+                    {{user_profile.bio}}
+                </div>
             </div>
         </div>
         <div class="posts">
-            {% for post in posts reversed %}
+            {% for post in user_posts reversed %}
                 <div class="post">
                     <div class="post-header">
                         <div class="post-info">
-                            <h3 class="username">@{{post.user}}</h3>
+                            <h3 class="username"><a href="">@{{post.user}}</a></h3>
                         </div>
                     </div>
                     <div class="post-content">

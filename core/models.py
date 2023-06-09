@@ -28,6 +28,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(default=datetime.now)
     likes = models.IntegerField(default=0)
     
+    
     def __str__(self):
         return self.user
     

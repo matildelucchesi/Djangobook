@@ -126,12 +126,23 @@ def upload(request):
         return redirect('/')
 
 @login_required
-def profile(request):
-    user_object = User.objects.get(username = request.user.username)
-    user_profile = Profile.objects.get(username = user_object)
-    posts = Post.objects.filter(user=request.user.username)
+def profile(request, pk):
     
-    return render(request, 'profile.html', {'user_profile': user_profile, 'posts': posts})
+    user_object = User.objects.get(username = pk)
+    user_profile = Profile.objects.get(user = user_object)
+    posts = Post.objects.filter(user =pk)
+    request_object = User.objects.get(username = request.user.username)
+    request_profile = Profile.objects.get(user = request_object)
+    
+    
+    context = {
+        'user_object': user_object,
+        'user_profile': user_profile,
+        'user_posts': posts,
+        'request_profile': request_profile,
+    }
+    
+    return render(request, 'profile.html', context)
 
 
 def like(request):
@@ -140,7 +151,7 @@ def like(request):
     
     post = Post.objects.get(id=post_id)
     
-    filter = LikePost.objects.filter(post_id=post_id, username=username).first
+    filter = LikePost.objects.filter(post_id=post_id, username=username).first()
     
     if filter is None:
         new_like = LikePost.objects.create(post_id=post_id, username=username)

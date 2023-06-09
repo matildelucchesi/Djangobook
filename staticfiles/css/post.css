@@ -4,6 +4,8 @@
     padding: 10px;
     width: 70%;
     margin-bottom: 10px;
+    position: relative;
+    top: 15px;
     justify-self: center;
 }
               

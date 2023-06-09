@@ -128,24 +128,31 @@ ul {
 }
 
 .profile-img-container{
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     align-content: center;
     width: 100%;
     height: fit-content;
+    border-bottom: 2px solid #1253a2;
 }
 
 .profile-img {
     width: 14em;
     border-radius: 50%;
     overflow: hidden;
+    margin: 13px;
   }
   
   .profile-img img {
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  .nickname{
+    justify-self: center;
+    margin: 0px;
   }
   
