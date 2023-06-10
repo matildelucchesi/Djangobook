@@ -94,16 +94,22 @@
                         {% endif %}
                     </div>
                     <div class="post-footer">
-                        <a href="/like?post_id={{post.id}}">
-                            <button class="like-button">Like</button>
-                        </a>
-                        {% if post.likes == 0 %}
-                            <p>No likes</p>
-                        {% elif post.likes == 1 %}
-                            <p>Liked by 1 person</p>
-                        {% else %}
-                            <p>Liked by {{ post.likes }} people</p>
-                        {% endif %}
+                        <div class="likes">
+                            <a href="/like?post_id={{post.id}}">
+                                <button class="like-button">
+                                    <span class="like-text">
+                                        Like
+                                    </span>
+                                </button>
+                            </a>
+                            {% if post.likes == 0 %}
+                                <p>No likes</p>
+                            {% elif post.likes == 1 %}
+                                <p>Liked by 1 person</p>
+                            {% else %}
+                                <p>Liked by {{ post.likes }} people</p>
+                            {% endif %}
+                        </div>
                         <button class="comment-button">Comment</button>
                     </div>
                 </div>

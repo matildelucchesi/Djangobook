@@ -1,0 +1,92 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Djangobook</title>
+    <link href="{%static 'css\header.css' %}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css\index-content.css' %}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css\post.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="back-arrow">
+                <a class="back" href="/">
+                    <img src="{%static 'img/back-arrow.png' %}" class="back-arrow-img" alt="back-arrow-img">
+                </a>
+            </div>
+            <form method="POST" class="form">
+                {% csrf_token %}
+                <div class="search-bar">
+                    <div class="input-container">
+                        <label class="input-text">
+                            <label class="input-text">
+                                <input type="text" name="username" placeholder="Search on Djangobook" class="input-text">
+                                <button type="submit" class="search-button">Search</button>
+                            </label>
+                        </label>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="shortcuts">
+                <div class="shortcuts-icon">
+                    <a href="../profile/{{user_profile.user.username}}/">
+                        <img src="{%static 'img/profile-icon.png' %}" class="icon" alt="profile-icon">
+                    </a>
+                </div>
+                <div class="shortcuts-icon">
+                    <a href="{%static 'index.html' %}">
+                        <img src="{%static 'img/messages-icon.png' %}" class="icon" alt="messages-icon">
+                    </a>
+                </div>
+                <div class="shortcuts-icon">
+                    <a href="{%static 'index.html' %}">
+                        <img src="{%static 'img/notifications-icon.png' %}" class="icon" alt="notifications-icon">
+                    </a>
+                </div>
+                <div class="shortcuts-icon" dropdown>
+                    <button class="settings-button" dropdown-button>
+                        <img src="{%static 'img/settings-icon.png' %}" class="icon" alt="settings-icon" dropdown-button>
+                    </button>
+                    <div class="dropdown-menu">
+                        <nav>
+                            <ul class="header-nav">
+                                <li><a class="dropdown-links" href="../settings">Account Settings</a></li>
+                                <li><a class="dropdown-links" href="{%static 'index.html' %}">Help</a></li>
+                                <li><a class="dropdown-links" href="logout">Log out</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        {% if username_profile_list %}
+            {% for users in username_profile_list %}
+                <h3>Result:</h3>
+                <div class="result">
+                    <a class="image-link" href="/profile/{{ users.user }}"><img src="{{ users.profile_img.url }}"></a>
+                    <div class="info">
+                        <h4 class="username">
+                        <a href="/profile/{{ users.user }}"><b>@{{ users.username }}</b></a>
+                        </h4>
+                        <p class="info-text">{{ users.location }}</p>
+                        <p class="info-text">{{ users.bio }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Result not found</p>
+        {% endif %}
+    </div>
+</body>
+

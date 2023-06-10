@@ -115,7 +115,7 @@ ul {
 .left{
     display: grid;
     width: 25%;
-    background-color: #1dacd0;
+    background-color:#abdae5;
     overflow-y: hidden;
     justify-content: center;
     align-items: baseline;
@@ -124,6 +124,7 @@ ul {
 .posts{
     width: 75%;
     display: grid;
+    align-items: baseline;
     overflow-y: scroll;
 }
 

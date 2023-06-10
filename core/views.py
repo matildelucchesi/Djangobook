@@ -185,17 +185,19 @@ def like(request):
     
     filter = LikePost.objects.filter(post_id=post_id, username=username).first()
     
+    
     if filter is None:
         new_like = LikePost.objects.create(post_id=post_id, username=username)
         new_like.save()
         post.likes = post.likes + 1
         post.save()
-        return redirect('/')
+        
     else:
         filter.delete()
         post.likes = post.likes - 1
         post.save()
-        return redirect('/')
+        
+    return redirect(request.META.get('HTTP_REFERER'))
     
 @login_required
 def follow(request):
@@ -215,3 +217,26 @@ def follow(request):
         
     else:
         return redirect('/')
+    
+@login_required
+def search(request):
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Profile.objects.get(user=user_object)
+    
+    
+    if request.method == 'POST':
+        username = request.POST['username']
+        username_object = User.objects.filter(username__icontains=username)
+        
+        username_profile = []
+        username_profile_list = []
+        
+        for users in username_object:
+            username_profile.append(users.id)
+        
+        for ids in username_profile:
+            profile_list = Profile.objects.filter(id_user=ids)
+            username_profile_list.append(profile_list)
+            
+        username_profile_list = list(chain(*username_profile_list))
+    return render(request, 'search.html', {'user_profile': user_profile, 'username_profile_list': username_profile_list})

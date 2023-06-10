@@ -18,18 +18,20 @@
     <header class="header">
         <div class="header-wrapper">
             <div class="logo">
-                <img src="{%static 'img/logo.png' %}" class="logo-img" alt="logo-img">
+                <a href="/"><img src="{%static 'img/logo.png' %}" class="logo-img" alt="logo-img"></a>
             </div>
-            <div class="search-bar">
-                <div class="input-container">
-                    <label class="input-text">
-                        <input type="text" placeholder="Search on Djangobook" class="input-text">
-                        <span class="search-icon">
-                            <img src="{%static 'img/search-icon.png' %}" class="icon" alt="search-icon">
-                        </span>
-                    </label>
+            <form action="search/" method="POST" class="form">
+                {% csrf_token %}
+                <div class="search-bar">
+                    <div class="input-container">
+                        <label class="input-text">
+                            <input type="text" name="username" placeholder="Search on Djangobook" class="input-text">
+                            <button type="submit" class="search-button">Search</button>
+                        </label>
+                    </div>
                 </div>
-            </div>
+            </form>
+            
             <div class="shortcuts">
                 <div class="shortcuts-icon">
                     <a href="profile/{{user_profile.user.username}}/">
@@ -50,21 +52,24 @@
                     <button class="settings-button" dropdown-button>
                         <img src="{%static 'img/settings-icon.png' %}" class="icon" alt="settings-icon" dropdown-button>
                     </button>
-                    <div class="dropdown-menu">
-                        <nav>
-                            <ul class="header-nav">
-                                <li><a class="dropdown-links" href="settings">Account Settings</a></li>
-                                <li><a class="dropdown-links" href="{%static 'index.html' %}">Help</a></li>
-                                <li><a class="dropdown-links" href="logout">Log out</a></li>
-                            </ul>
-                        </nav>
-                    </div>
                 </div>
             </div>
         </div>
     </header>
     <div class="content">
-        <div class="post">
+        <div class="friends">
+            
+        </div>
+        <div class="dropdown-menu">
+            <nav>
+                <ul class="header-nav">
+                    <li><a class="dropdown-links" href="settings">Account Settings</a></li>
+                    <li><a class="dropdown-links" href="{%static 'index.html' %}">Help</a></li>
+                    <li><a class="dropdown-links" href="logout">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="post-wrapper">
             <div class="add-post">
                 <form action="upload" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -99,24 +104,27 @@
                         {% endif %}
                     </div>
                     <div class="post-footer">
-                        <a href="/like?post_id={{post.id}}">
-                            <button class="like-button">Like</button>
-                        </a>
-                        {% if post.likes == 0 %}
-                            <p>No likes</p>
-                        {% elif post.likes == 1 %}
-                            <p>Liked by 1 person</p>
-                        {% else %}
-                            <p>Liked by {{ post.likes }} people</p>
-                        {% endif %}
+                        <div class="likes">
+                            <a href="/like?post_id={{post.id}}">
+                                <button class="like-button">
+                                    <span class="like-text">
+                                        Like
+                                    </span>
+                                </button>
+                            </a>
+                            {% if post.likes == 0 %} 
+                                <p>No likes</p>
+                            {% elif post.likes == 1 %}
+                                <p>Liked by 1 person</p>
+                            {% else %}
+                                <p>Liked by {{ post.likes }} people</p>
+                            {% endif %}
+                        </div>
                         <button class="comment-button">Comment</button>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-        </div>
-        <div class="friends">
-            
         </div>
     </div>
 </body>

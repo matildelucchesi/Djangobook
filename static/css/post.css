@@ -7,6 +7,7 @@
     position: relative;
     top: 15px;
     justify-self: center;
+    height: fit-content;
 }
               
 .post-header {
@@ -55,10 +56,12 @@
 .post-footer button {
     padding: 5px 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: #1253a2;
     color: #fff;
     font-size: 14px;
+    height: 100%;
+    align-self: center;
     cursor: pointer;
 }
               
@@ -66,7 +69,14 @@
     background-color: #1dacd0;
 }
          
-              
-              
+.likes{
+    display: flex;
+    align-items: center;
+}           
+       
+a{
+    text-decoration: none;
+    color: black;
+}
               
               
