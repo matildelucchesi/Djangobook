@@ -15,6 +15,7 @@ class Profile(models.Model):
     bio = models.TextField(blank = True)
     profile_img = models.ImageField(upload_to='profile_images', default = 'blank_propic.png')
     location = models.CharField(max_length=100, blank=True)
+    
 
     
     def __str__(self):
@@ -38,3 +39,10 @@ class LikePost(models.Model):
     
     def __str__(self):
         return self.username
+    
+class FollowersCount(models.Model):
+    follower = models.CharField(max_length=100)
+    user = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.user

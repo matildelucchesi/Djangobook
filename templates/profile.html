@@ -45,6 +45,39 @@
                     {{user_profile.bio}}
                 </div>
             </div>
+            <div class="other">
+                <form action="/follow" method="post">
+                    {% csrf_token %}
+
+                    {% if user_followers == 0 or user_followers == 1 %}
+                        <b>{{user_followers}} follower</b>
+                    {% else %}
+                        <b>{{user_followers}} followers</b>
+                    {% endif %}
+                    
+                    {% if user_following == 0 or user_following == 1 %}
+                        <b>{{user_following}} follower</b>
+                    {% else %}
+                        <b>{{user_following}} followers</b>
+                    {% endif %}
+
+                    <input type="hidden" value="{{user.username}}" name="follower" />
+                    <input type="hidden" value="{{user_object.username}}" name="user" />
+                    {% if user_object.username == user.username%}
+                    <a>
+                        <button type="submit" style="display: none">
+                            {{button_text}}
+                        </button>
+                    </a>
+                    {% else %}
+                    <a>
+                        <button type="submit">
+                            {{button_text}}
+                        </button>
+                    </a>
+                    {% endif %}
+                </form>
+            </div>
         </div>
         <div class="posts">
             {% for post in user_posts reversed %}
