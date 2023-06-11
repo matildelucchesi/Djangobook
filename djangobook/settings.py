@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from whitenoise.middleware import WhiteNoiseMiddleware
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -51,7 +52,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "sjango.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoideMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "djangobook.urls"
