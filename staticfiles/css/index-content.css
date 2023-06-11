@@ -1,12 +1,16 @@
 .content{
     display: flex;
     background-color: white;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 0;
 }
 
-.post{
+.post-wrapper{
     display: grid;
-    width: 70%;
+    width: 100%;
     align-items: baseline;
+    overflow-y: scroll;
 }
 
 .add-post{
@@ -49,6 +53,7 @@
 .friends{
     display: grid;
     width: 30%;
+    border-right: 2px solid #1dacd0;
 }
 
 
@@ -102,4 +107,8 @@
     background-color: #1253a2;
     border-radius: 50px;
     border-color: white;
+}
+
+.feed{
+    display: grid;
 }
