@@ -8,7 +8,7 @@
 
 .post-wrapper{
     display: grid;
-    width: 70%;
+    width: 100%;
     align-items: baseline;
     overflow-y: scroll;
 }

@@ -1,0 +1,45 @@
+.content{
+    overflow-x: hidden;
+    justify-content: center;
+    display: flex;
+}
+
+.box{
+    height: fit-content;
+    display: grid;
+    justify-content: center;
+    width: 50em;
+}
+
+.result{
+    display: flex;
+    width: 600px;
+    border: 1px solid black;
+    border-radius: 10px;
+    align-self: center;
+}
+
+.image-link{
+    display: flex;
+    width: fit-content;
+}
+
+.propic{
+    width: 8em;
+    border-radius: 9px;
+    object-fit: cover;
+}
+
+a{
+    text-decoration: none;
+}
+
+.info{
+    position: relative;
+    left: 10px;
+}
+
+h4{
+    color: black;
+    text-decoration: none;
+}

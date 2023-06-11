@@ -9,8 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Djangobook</title>
     <link href="{%static 'css\header.css' %}" rel="stylesheet" type="text/css">
-    <link href="{%static 'css\index-content.css' %}" rel="stylesheet" type="text/css">
-    <link href="{%static 'css\post.css' %}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css\search.css' %}" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="{%static 'js/main.js' %}"></script>
 </head>
 
@@ -72,20 +71,24 @@
     <div class="content">
         {% if username_profile_list %}
             {% for users in username_profile_list %}
+            <div class="box">
                 <h3>Result:</h3>
                 <div class="result">
-                    <a class="image-link" href="/profile/{{ users.user }}"><img src="{{ users.profile_img.url }}"></a>
+                    <a class="image-link" href="/profile/{{ users.user }}"><img class="propic" src="{{ users.profile_img.url }}"></a>
                     <div class="info">
                         <h4 class="username">
-                        <a href="/profile/{{ users.user }}"><b>@{{ users.username }}</b></a>
+                        <a href="/profile/{{ users.user }}"><b>@{{ users.user.username }}</b></a>
                         </h4>
-                        <p class="info-text">{{ users.location }}</p>
-                        <p class="info-text">{{ users.bio }}</p>
+                        <p class="info-text">Location: {{ users.location }}</p>
+                        <p class="info-text">Bio: {{ users.bio }}</p>
                     </div>
                 </div>
+            </div>
             {% endfor %}
         {% else %}
-            <p>Result not found</p>
+            <div class="result-box">
+                <h3>Result not found</h3>
+            </div>  
         {% endif %}
     </div>
 </body>

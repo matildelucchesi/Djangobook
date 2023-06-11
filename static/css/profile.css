@@ -115,7 +115,7 @@ ul {
 .left{
     display: grid;
     width: 25%;
-    background-color: #1dacd0;
+    background-color:#b5f0ff;
     overflow-y: hidden;
     justify-content: center;
     align-items: baseline;
@@ -139,16 +139,20 @@ ul {
 }
 
 .profile-img {
-    width: 14em;
-    border-radius: 50%;
+    width: 250px;
+    margin-top: 15px;
+    height: 200px;
+    position: relative;
     overflow: hidden;
-    margin: 13px;
-  }
+}
   
   .profile-img img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+     left: 0;
   }
 
   .nickname{
@@ -156,3 +160,18 @@ ul {
     margin: 0px;
   }
   
+  .container{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+  }
+
+  .bio{
+    display: flex;
+    justify-content: center;
+  }
+
+  .other{
+    display: flex;
+    justify-self: center;
+  }
